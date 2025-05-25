@@ -48,7 +48,7 @@ def impFunc(ocrResult):
             print(ent +  '- Phone')
             respDict["Phone"] = ent
     print(name +  '- Name')
-    respJson = json.load(json.dumps(respDict))
+    respJson = json.loads(json.dumps(respDict))
     return respJson
 
 #impFunc("abc")
