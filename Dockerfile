@@ -9,7 +9,7 @@ COPY main.py .
 COPY smartScan.py .
 
 RUN pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
-RUN pip install spacy
+RUN pip install spacy --target "${LAMBDA_TASK_ROOT}"
 RUN python -m spacy download en_core_web_sm
 
 
