@@ -1,5 +1,7 @@
 import spacy
 
+impFunc(abc)
+
 def testFunc(ocrResult):
     print(ocrResult)
 
