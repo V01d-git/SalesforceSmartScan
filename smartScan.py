@@ -19,7 +19,7 @@ def impFunc(ocrResult):
 
     7th North St., New York, ST 07086'''
     name = ''
-    ts = test(sent)
+    ts = nlp(sent)
     for ent in ts.ents:
         print(f'{ent.label_.upper():{10}} - {ent.text}')
         if ent.label_.upper() == 'PERSON':
