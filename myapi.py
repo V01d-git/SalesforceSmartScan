@@ -1,14 +1,22 @@
-from fastapi import FastAPI, Path
-from typing import Optional
+from fastapi import FastAPI
 from pydantic import BaseModel
+from mangum import Mangum
+
+from smartScan import impFunc
+#from test import testFunc
 
 app = FastAPI()
+handler = Mangum(app)
+
+
+class reqBody(BaseModel):
+    ocrResult:str
+
 
 @app.get("/")
-def index():
-    return {"name": "First Data"}
+async def root():
+    return {"message": "Hello World"}
 
-
-@app.get("/get-student/{student_id}")
-def get_student (student_id: int Path (None, description="The ID of the student you
-    return students[student_id]
+@app.post("/smart-scan")
+async def scanFunc(reqBody:reqBody):
+    return {"message": testFunc(reqBody.ocrResult)}
