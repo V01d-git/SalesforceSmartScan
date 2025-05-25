@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from mangum import Mangum
 
 from smartScan import impFunc
-#from test import testFunc
+from smartScan import testFunc
 
 app = FastAPI()
 handler = Mangum(app)
