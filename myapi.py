@@ -19,4 +19,4 @@ async def root():
 
 @app.post("/smart-scan")
 async def scanFunc(reqBody:reqBody):
-    return {"message": testFunc(reqBody.ocrResult)}
+    return {"message": impFunc(reqBody.ocrResult)}

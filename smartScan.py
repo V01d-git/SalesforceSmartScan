@@ -1,4 +1,5 @@
 import spacy
+import json
 
 def testFunc(ocrResult):
     print(ocrResult)
@@ -19,6 +20,7 @@ def impFunc(ocrResult):
     hello@reallygreatsite.com
 
     7th North St., New York, ST 07086'''
+    respDict = {}
     name = ''
     ts = nlp(sent)
     for ent in ts.ents:
@@ -28,7 +30,7 @@ def impFunc(ocrResult):
 
 
     print(name)
-
+    respDict["FullName"] = name
     ls = sent.split('\n')
 
     for ent in ls:
@@ -38,10 +40,15 @@ def impFunc(ocrResult):
         temp = temp.strip()
         if 'www.' in temp and '.com' in temp:
             print(ent +  '- Web')
+            respDict["Website"] = ent
         elif '@' in temp and '.com' in temp:
             print(ent +  '- Email')
+            respDict["Email"] = ent
         elif temp.isnumeric() and len(temp) == 10:
             print(ent +  '- Phone')
+            respDict["Phone"] = ent
     print(name +  '- Name')
+    respJson = json.dumps(respDict)
+    return respJson
 
-impFunc("abc")
+#impFunc("abc")
