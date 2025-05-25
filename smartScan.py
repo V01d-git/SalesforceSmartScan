@@ -42,5 +42,3 @@ def impFunc(ocrResult):
         elif temp.isnumeric() and len(temp) == 10:
             print(ent +  '- Phone')
     print(name +  '- Name')
-
-impFunc("abc")
