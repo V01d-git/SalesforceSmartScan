@@ -30,7 +30,7 @@ def impFunc(ocrResult):
 
 
     print(name)
-    respDict["FullName"] = name
+    respDict[FullName] = name
     ls = sent.split('\n')
 
     for ent in ls:
@@ -40,13 +40,13 @@ def impFunc(ocrResult):
         temp = temp.strip()
         if 'www.' in temp and '.com' in temp:
             print(ent +  '- Web')
-            respDict["Website"] = ent
+            respDict[Website] = ent
         elif '@' in temp and '.com' in temp:
             print(ent +  '- Email')
-            respDict["Email"] = ent
+            respDict[Email] = ent
         elif temp.isnumeric() and len(temp) == 10:
             print(ent +  '- Phone')
-            respDict["Phone"] = ent
+            respDict[Phone] = ent
     print(name +  '- Name')
     respJson = json.dumps(respDict)
     return respJson
