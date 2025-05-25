@@ -2,6 +2,7 @@ import spacy
 
 def testFunc(ocrResult):
     print(ocrResult)
+    return ocrResult
 
 
 
