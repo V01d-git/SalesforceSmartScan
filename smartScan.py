@@ -34,19 +34,19 @@ def impFunc(ocrResult):
     ls = sent.split('\n')
 
     for ent in ls:
-        temp = ent
+        temp = ent.strip()
         temp = temp.replace('-','')
         temp = temp.replace('+','')
         temp = temp.strip()
         if 'www.' in temp and '.com' in temp:
             print(ent +  '- Web')
-            respDict["Website"] = ent
+            respDict["Website"] = ent.strip()
         elif '@' in temp and '.com' in temp:
             print(ent +  '- Email')
-            respDict["Email"] = ent
+            respDict["Email"] = ent.strip()
         elif temp.isnumeric() and len(temp) == 10:
             print(ent +  '- Phone')
-            respDict["Phone"] = ent
+            respDict["Phone"] = ent.strip()
     print(name +  '- Name')
     respJson = json.loads(json.dumps(respDict))
     return respJson
